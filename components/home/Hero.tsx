@@ -4,6 +4,7 @@ import { useGLTF, useAnimations, OrbitControls } from "@react-three/drei";
 import { Group } from "three";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import Badge from "../shared/Badge";
 
 const DroneModel = () => {
   const group = useRef<Group>(null);
@@ -66,21 +67,13 @@ const DroneModel = () => {
 useGLTF.preload("/models/animated_drone.glb");
 
 export const Hero = () => (
-  <section className="w-full max-w-[1550px] mx-auto bg-gray-50 py-16 md:py-24 flex flex-col md:flex-row items-center justify-start px-4 sm:px-6 lg:px-12 overflow-hidden">
+  <section className="w-full max-w-[1550px] mx-auto bg-gray-50 py-16 pb-0 md:py-24 pt-20 md:pt-32 flex flex-col md:flex-row items-center justify-start px-4 sm:px-6 lg:px-12 overflow-hidden">
 
-    {/* Text Section */}
-    <div className="w-full md:w-2/3 flex flex-col items-start mb-8 md:mb-0" data-aos="fade-right">
-      <div
-        className="inline-flex items-center gap-2 bg-cyan-100 text-cyan-800 text-sm font-medium px-3 py-1 rounded-full mb-6"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        <span className="w-2 h-2 bg-cyan-500 rounded-full"></span>
-        AVAILABLE FOR WORK
-      </div>
+    <div className="w-full max-w-[858px] flex flex-col items-start mb-8 md:mb-0 gap-5 md:gap-7" data-aos="fade-right">
+      <Badge text="FULL-STACK DEVELOPER" src="/icons/code-slash.svg" />
 
       <h1
-        className="text-5xl md:text-6xl lg:text-[82px] font-bold uppercase text-black font-heading"
+        className="text-[48px] md:text-[64px] leading-[56px] md:leading-[72px] lg:text-[88px] lg:leading-[96px] tracking-tight font-bold uppercase text-black font-heading"
         data-aos="fade-up"
         data-aos-delay="200"
       >
@@ -95,7 +88,7 @@ export const Hero = () => (
       </h1>
 
       <p
-        className="mt-6 text-base sm:text-lg md:text-2xl text-gray-600 max-w-xl md:max-w-[80%]"
+        className="text-base sm:text-lg md:text-2xl text-gray-600 max-w-xl md:max-w-[80%]"
         data-aos="fade-up"
         data-aos-delay="300"
       >
@@ -120,7 +113,7 @@ export const Hero = () => (
 
     {/* 3D Model Section */}
     <div className="relative w-full md:absolute md:top-0 md:right-0 flex justify-center md:justify-end" data-aos="fade-left">
-      <div className="w-full h-[400px] sm:h-[500px] md:h-[700px] lg:h-[800px]">
+      <div className="w-full h-[400px] sm:h-[500px] md:h-[700px] lg:h-[800px] -mt-36 md:mt-0">
         <Canvas camera={{ position: [0, 2, 6], fov: 60 }}>
           <ambientLight intensity={1.5} />
           <directionalLight position={[5, 5, 5]} intensity={2.5} />
