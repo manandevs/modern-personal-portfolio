@@ -1,124 +1,119 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiArrowUp } from "react-icons/fi";
-
-const Logo = () => (
-  <div className='flex-shrink-0'>
-    <Link to='/' className={`font-heading text-4xl font-bold text-white`}>
-      <img
-        src="/images/about/logo-image.png"
-        alt="logo"
-        className="w-16 aspect-square rounded-sm"
-      />
-    </Link>
-  </div>
-);
+import { FaXTwitter, FaInstagram, FaLinkedin } from "react-icons/fa6";
 
 export const Footer: React.FC = React.memo(() => {
-  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const navLinks = [
-    { name: 'Services', path: '/services' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'My Process', path: '/process' },
-    { name: 'About Me', path: '/about' },
-    { name: 'Notes', path: '/notes' },
+  const navItems = [
+    { label: "Services", href: "/services" },
+    { label: "Projects", href: "/projects" },
+    { label: "My Process", href: "/process" },
+    { label: "About Me", href: "/about" },
+    { label: "Notes", href: "/notes" },
   ];
 
   const legalLinks = [
-    { name: 'Privacy', path: '/privacy' },
-    { name: 'Terms', path: '/terms' },
+    { label: "Privacy", href: "/privacy" },
+    { label: "Terms", href: "/terms" },
   ];
 
   const socialLinks = [
-    { name: 'LinkedIn', path: 'https://www.linkedin.com/' },
-    { name: 'GitHub', path: 'https://github.com/' },
+    { icon: <FaXTwitter />, href: "/", hover: "hover:text-[#000000]" },
+    { icon: <FaInstagram />, href: "/", hover: "hover:text-[#E4405F]" },
+    { icon: <FaLinkedin />, href: "/", hover: "hover:text-[#0077B5]" },
   ];
 
   return (
-    <footer className='bg-black text-white' data-aos="fade-up">
-      <div className='mx-auto px-8 sm:px-6 lg:px-10 pt-8 md:pt-20 pb-10 max-w-[1550px]'>
-        <div className='flex flex-col lg:flex-row justify-between'>
-          <div className='w-full lg:w-1/4'>
-            <div className='flex justify-between'>
-              <Logo />
-              <a
-                href='#'
-                onClick={scrollToTop}
-                className='md:hidden group cursor-pointer flex items-center gap-3 text-sm'
-              >
-                Back to top
-                <span className='bg-white group-hover:bg-violet-500 transition-all duration-300 ease-in-out rounded-[8px] w-7 h-7 flex items-center justify-center text-black'>
-                  <FiArrowUp size={14} />
-                </span>
-              </a>
-            </div>
-            <div className='mt-6 hidden lg:block'>
-              <p className='text-[18px]'>Have questions or want to chat?</p>
-              <p className='text-[18px] mt-1'>
-                Drop me a line →
-                <br />
-                <a href='mailto:abdulmanan.devs@gmail.com' className='text-violet-400 ml-[5px] hover:text-violet-300 underline'>
-                  abdulmanan.devs@gmail.com
-                </a>
-              </p>
+    <footer className="overflow-hidden w-full h-auto px-5 py-12 pb-4 bg-black">
+      <div className="flex justify-between lg:items-center flex-col gap-10 lg:gap-0 lg:flex-row max-w-[1550px] mx-auto">
+
+        {/* LEFT SECTION */}
+        <div className="max-w-[551px] w-full">
+          <div className="inline-block gap-8">
+            <div className="flex justify-center items-center">
+              <img
+                src={"/images/about/logo-image.png"}
+                alt="logo"
+                width={32}
+                height={39}
+              />
             </div>
           </div>
 
-          <div className='w-full lg:w-3/4 flex flex-wrap justify-start lg:justify-between lg:pl-32 mt-8 lg:mt-0'>
-            <div className='w-1/2 md:w-1/4 mb-4 md:mb-8 lg:mb-0'>
-              <h3 className='font-bold text-white text-[16px] md:text-[18px] mb-3'>Navigation</h3>
-              <ul className='space-y-1'>
-                {navLinks.map(link => (
-                  <li key={link.name}>
-                    <Link to={link.path} className='text-[14px] md:text-[16px] text-neutral-300 hover:text-white'>{link.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <h1 className="font-heading text-[32px] leading-[38px] lg:text-[40px] lg:leading-[46px] mt-6 text-white">
+            Stay updated! Subscribe to my newsletter for weekly web development tips and insights.
+          </h1>
 
-            <div className='w-1/2 md:w-1/4 mb-4 md:mb-8 lg:mb-0'>
-              <h3 className='font-bold text-white text-[16px] md:text-[18px] mb-3'>Legal</h3>
-              <ul className='space-y-1'>
-                {legalLinks.map(link => (
-                  <li key={link.name}>
-                    <Link to={link.path} className='text-[14px] md:text-[16px] text-neutral-300 hover:text-white'>{link.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className='w-1/2 md:w-1/4 mb-4 md:mb-8 lg:mb-0'>
-              <h3 className='font-bold text-white text-[16px] md:text-[18px] mb-3'>Socials</h3>
-              <ul className='space-y-1'>
-                {socialLinks.map(link => (
-                  <li key={link.name}>
-                    <a href={link.path} target="_blank" rel="noopener noreferrer" className='text-[14px] md:text-[16px] text-neutral-300 hover:text-white'>{link.name}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="flex items-end gap-4 mt-5">
+            <input
+              type="text"
+              placeholder="Your email@example.com"
+              className="w-full max-w-[278px] shadow-[0px_3px_0px_0px_#EEEEEE] font-[400] leading-6 text-[16px] bg-white py-3 outline-none px-3.5 placeholder:text-[#929292] rounded-[16px] border-[1px] border-[#3D3D3D1A]"
+            />
+            <button
+              className="rounded-2xl text-white py-3 hover:scale-[0.98] hover:translate-y-[-3px] px-7 inline-block cursor-pointer transition-all duration-300 ease-in-out shadow-[0px_3px_0px_0px_#6E50D1,0px_5px_6px_0px_#7558FC80] active:shadow-none"
+              style={{
+                background: "linear-gradient(180deg, #7F61FB 0%, #7558FC 100%)",
+              }}
+            >
+              Submit
+            </button>
           </div>
         </div>
 
-        <div className='mt-12 md:mt-28 flex flex-col lg:flex-row items-start lg:items-end justify-between font-mono text-xs text-neutral-400 gap-8 lg:gap-4'>
-          <div className='hidden lg:flex flex-col gap-16 order-1'>
-            <a href='#' onClick={scrollToTop} className='flex group items-center cursor-pointer gap-3 text-sm'>
-              <span className='bg-white group-hover:bg-violet-500 transition-all duration-300 ease-in-out rounded-xl w-9 h-9 flex items-center justify-center text-black'>
-                <FiArrowUp size={16} />
-              </span>
-              Back to top
-            </a>
-            <p className='text-[12px]'>Abdul Manan © {new Date().getFullYear()} | All rights reserved</p>
+        {/* RIGHT SECTION — TWO BOXES IN ONE COLUMN */}
+        <div className="flex flex-col gap-8 w-full md:w-auto">
+
+          {/* NAVIGATION BOX */}
+          <div className="grid grid-cols-2 w-full md:w-auto gap-4 md:gap-6">
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                to={item.href}
+                className="text-[#535353] cursor-pointer font-medium text-[18px] leading-[1.6] md:text-xl active:text-black"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
 
-          <p className='block lg:hidden text-[12px] order-4'>
-            Abdul Manan © {new Date().getFullYear()} | All rights reserved
+          {/* LEGAL BOX */}
+          <div className="grid grid-cols-2 w-full md:w-auto gap-4 md:gap-6">
+            {legalLinks.map((item, index) => (
+              <Link
+                key={index}
+                to={item.href}
+                className="text-[#535353] cursor-pointer font-medium text-[18px] leading-[1.6] md:text-xl active:text-black"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+        </div>
+      </div>
+
+      {/* BOTTOM FOOTER */}
+      <div className="max-w-[1550px] mx-auto py-14 flex md:flex-row flex-col justify-between gap-5 md:items-center">
+        <div className="flex flex-col">
+          <p className="text-[14px] leading-6 text-[#707070] font-semibold">
+            © 2025 Abdul Manan | All rights reserved.
           </p>
+          <p className="text-[14px] leading-6 text-[#707070] font-semibold">
+            Full-Stack Web Developer. Crafting user-first, responsive, and visually engaging digital experiences.
+          </p>
+        </div>
+
+        {/* SOCIAL ICONS */}
+        <div className="flex gap-3">
+          {socialLinks.map((item, index) => (
+            <Link
+              key={index}
+              to={item.href}
+              className={`hover:bg-white border border-[#E0E0DB] cursor-pointer transition-all duration-300 ease-in-out rounded-[12px] size-[32px] text-[20px] flex items-center justify-center text-[#5F5F69] ${item.hover}`}
+            >
+              {item.icon}
+            </Link>
+          ))}
         </div>
       </div>
     </footer>
