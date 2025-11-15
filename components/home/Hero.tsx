@@ -55,10 +55,10 @@ const DroneModel = () => {
         isMobile
           ? [2 / 3, 0, 0]
           : [
-              0.5 + ((y / window.innerHeight - 0.5) * 0.5 || 0),
-              -1 + ((x / window.innerWidth - 0.5) * 1.2 || 0),
-              0,
-            ]
+            0.5 + ((y / window.innerHeight - 0.5) * 0.5 || 0),
+            -1 + ((x / window.innerWidth - 0.5) * 1.2 || 0),
+            0,
+          ]
       }
     />
   );
@@ -67,9 +67,9 @@ const DroneModel = () => {
 useGLTF.preload("/models/animated_drone.glb");
 
 export const Hero = () => (
-  <section className="w-full max-w-[1550px] mx-auto bg-gray-50 py-16 pb-0 md:py-24 pt-20 md:pt-32 flex flex-col md:flex-row items-center justify-start px-4 sm:px-6 lg:px-12 overflow-hidden">
+  <section className="w-full max-w-[1550px] mx-auto bg-gray-50 flex flex-col md:flex-row items-center justify-start px-4 sm:px-6 lg:px-12 overflow-hidden">
 
-    <div className="w-full max-w-[858px] flex flex-col items-start mb-8 md:mb-0 gap-5 md:gap-7" data-aos="fade-right">
+    <div className="w-full max-w-[858px] py-16 pb-0 md:py-24 pt-20 md:pt-32 flex flex-col items-start mb-8 md:mb-0 gap-5 md:gap-7" data-aos="fade-right">
       <Badge text="FULL-STACK DEVELOPER" src="/icons/code-slash.svg" />
 
       <h1
@@ -97,12 +97,9 @@ export const Hero = () => (
 
       <Link
         to="mailto:abdulmanan.devs@gmail.com"
-        className="rounded-2xl mt-3 py-3 px-7 inline-block cursor-pointer transition-all duration-300 ease-in-out
-                   text-gray-400 border-2 border-gray-400
-                   shadow-[0px_3px_0px_0px_rgba(156,163,175,1),0px_5px_6px_0px_rgba(156,163,175,0.5)]
-                   transform
-                   hover:scale-[0.98] hover:translate-y-[-3px]
-                   hover:bg-gray-700 hover:text-gray-100 active:shadow-none"
+        className="rounded-2xl mt-3 py-3 px-7 z-[999] inset-0 inline-block cursor-pointer transition-all duration-300 ease-in-out
+                   text-gray-400 border-2 border-gray-400 shadow-[0px_3px_0px_0px_rgba(156,163,175,1),0px_5px_6px_0px_rgba(156,163,175,0.5)]
+                   transform hover:scale-[0.98] hover:translate-y-[-3px] hover:bg-gray-700 hover:text-gray-100 active:shadow-none"
         data-aos="fade-up"
         data-aos-delay="400"
       >
@@ -125,5 +122,7 @@ export const Hero = () => (
       </div>
     </div>
 
+    <div className="bg-[#7558FC] size-[200px] lg:size-[320px] blur-[200px] md:blur-[300px] z-[1] absolute bottom-0 md:bottom-[100px] right-[0]"></div>
+    <div className="bg-[#9CE015] size-[200px] lg:size-[320px] blur-[200px] md:blur-[300px] z-[-1] absolute bottom-[330px] md:bottom-auto md:top-[100px] left-0"></div>
   </section>
 );
