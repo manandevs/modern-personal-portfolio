@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import LenisScroll from '@/components/shared/Lenis';
+import ParticleBloomEffect from '@/components/shared/ParticleBloomEffect';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -14,6 +15,7 @@ root.render(
   <React.StrictMode>
     <LenisScroll>
       <App />
+      {/* <ParticleBloomEffect /> */}
     </LenisScroll>
   </React.StrictMode>
 );

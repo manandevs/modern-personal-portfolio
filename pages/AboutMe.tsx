@@ -202,7 +202,7 @@ export default function AboutMe() {
       <AboutHero />
       <ExperienceTimeline />
       <AboutMeDetail />
-      <AboutMeFAQ />
+      {/* <AboutMeFAQ /> */}
     </div>
   );
 }
